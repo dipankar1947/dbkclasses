@@ -2111,11 +2111,33 @@ body.student-auth-page { background: #ffffff; color: #111111; }
   }
 
   .section { padding: 52px 0; }
-  .header-inner { width: calc(100% - 24px); min-height: 72px; gap: 8px; }
+  /* Keep the brand and header controls in separate columns on small screens.
+     The controls used to be absolutely positioned, which made the theme
+     button overlap the brand text on narrow mobile viewports. */
+  .header-inner {
+    width: calc(100% - 24px);
+    min-height: 72px;
+    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding-right: 0;
+  }
   .brand-logo { width: 42px; height: 42px; border-radius: 12px; }
   .brand-copy strong { font-size: 0.92rem; }
   .brand-copy span { font-size: 0.72rem; }
-  .header-actions { top: 14px; right: 0; }
+  .brand-link { gap: 8px; min-width: 0; }
+  .brand-copy { min-width: 0; }
+  .brand-copy strong,
+  .brand-copy span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .header-actions {
+    position: static;
+    gap: 6px;
+    min-width: 0;
+  }
+  .header-actions .cta-green {
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.9rem;
+  }
   .nav-toggle { width: 42px; height: 40px; }
 
   .primary-nav { left: 0; right: 0; top: calc(100% + 6px); }
