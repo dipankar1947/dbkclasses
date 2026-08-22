@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses student portal entry page." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBK Classes | Student Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="student-home-page" data-page="student-home">
+  <header class="site-header student-home-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Student portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Student navigation">
+        <a href="student.html">Home</a>
+        <a href="student-login.html">Log in</a>
+        <a href="student-signup.html">Sign up</a>
+        <a href="student-dashboard.html">Dashboard</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="index.html">Back to website</a>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="student-home-shell">
+    <section class="student-home-hero">
+      <div class="student-home-copy">
+        <span class="eyebrow">Student access</span>
+        <h1>Choose how you want to continue.</h1>
+        <p>New students can create a complete profile in a few steps. Already registered? Log in with your name and student ID.</p>
+      </div>
+      <div class="student-home-note">
+        <strong>One simple portal</strong>
+        <p>Manage your student details and digital ID card from one calm, secure space.</p>
+      </div>
+    </section>
+
+    <section class="portal-cards student-choice-cards">
+      <article class="portal-card student">
+        <span class="portal-tag">New Student</span>
+        <h3>Sign Up</h3>
+        <p>Add the details needed for your student profile and digital ID card.</p>
+        <a class="portal-btn" href="student-signup.html">Sign Up</a>
+      </article>
+
+      <article class="portal-card admin">
+        <span class="portal-tag">Returning Student</span>
+        <h3>Log In</h3>
+        <p>Use your registered name and private student ID to open your portal.</p>
+        <a class="portal-btn" href="student-login.html">Log In</a>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

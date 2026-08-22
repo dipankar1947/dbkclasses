@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses admin student edit page." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Edit Student Marks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page" data-page="admin-student-edit">
+  <header class="site-header admin-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Admin portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Admin edit navigation">
+        <a href="admin-portal.html">Students</a>
+        <a href="admin-student.html">Dashboard</a>
+        <a href="admin-student-edit.html">Edit marks</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="admin-student.html">Back</a>
+        <button class="ghost-btn" id="logoutAdminBtn" type="button">Logout</button>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-student-shell">
+    <section class="admin-student-hero">
+      <div>
+        <span class="eyebrow">Edit report</span>
+        <h1 id="adminEditStudentName">Student name</h1>
+        <p id="adminEditStudentMeta">Student ID</p>
+      </div>
+      <div class="admin-student-actions">
+        <a class="ghost-btn" id="adminEditBackButton" href="admin-student.html">Back to dashboard</a>
+        <button class="ghost-btn admin-danger-btn" id="adminDeleteStudent" type="button">Delete profile</button>
+      </div>
+    </section>
+
+    <section class="admin-student-grid">
+      <article class="panel admin-report-settings-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Manual details</span>
+            <h3>Student result summary</h3>
+          </div>
+          <span class="status-pill">Shown to student</span>
+        </div>
+        <div class="admin-report-settings-grid">
+          <label class="field">
+            <span>Rank</span>
+            <input id="adminStudentRank" type="text" placeholder="e.g. 12" />
+          </label>
+          <label class="field admin-wide-field">
+            <span>Special notice from owner</span>
+            <textarea id="adminOwnerNotice" rows="3" placeholder="Write a notice for this student"></textarea>
+          </label>
+        </div>
+      </article>
+
+      <article class="panel admin-progress-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Progress report</span>
+            <h3>Test series marks</h3>
+          </div>
+          <span class="status-pill" id="adminProgressStatus">Ready</span>
+        </div>
+
+        <div class="admin-progress-summary">
+          <article>
+            <span>Average</span>
+            <strong id="adminProgressAverage">0%</strong>
+          </article>
+          <article>
+            <span>Best</span>
+            <strong id="adminProgressBest">0%</strong>
+          </article>
+          <article>
+            <span>Latest</span>
+            <strong id="adminProgressLatest">0%</strong>
+          </article>
+          <article>
+            <span>Tests</span>
+            <strong id="adminProgressTotal">0</strong>
+          </article>
+        </div>
+
+        <div id="adminProgressList" class="admin-progress-list"></div>
+
+        <div class="form-actions admin-actions">
+          <button class="ghost-btn" id="adminAddProgressRow" type="button">Add test series</button>
+          <button class="solid-btn" id="adminSaveProgress" type="button">Save report</button>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

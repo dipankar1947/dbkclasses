@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses admin login page." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Admin Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page" data-page="admin-login">
+  <header class="site-header admin-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Admin login</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Admin navigation">
+        <a href="index.html">Home</a>
+        <a href="student.html">Student</a>
+        <a href="admin.html">Admin Login</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="index.html">Back to website</a>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero">
+      <div class="admin-hero-copy">
+        <span class="eyebrow">Admin access</span>
+        <h1>Log in to manage student profiles.</h1>
+        <p>
+          Use your private admin username and password to open the management portal. From there you can edit student details, update test series numbers, and remove records.
+        </p>
+      </div>
+      <div class="admin-hero-metrics">
+        <article>
+          <strong>1</strong>
+          <span>Login step</span>
+        </article>
+        <article>
+          <strong>2</strong>
+          <span>Portal opens next</span>
+        </article>
+        <article>
+          <strong>Live</strong>
+          <span>Registry sync</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel admin-login-panel">
+      <div class="panel-header">
+        <div>
+          <span class="mini-label">Admin login</span>
+          <h3>Enter username and password</h3>
+        </div>
+        <span class="status-pill">Secure</span>
+      </div>
+
+      <form id="adminLoginForm" class="admin-login-form" novalidate>
+        <label class="field">
+          <span>Username</span>
+          <input id="adminUsername" type="text" placeholder="Admin username" autocomplete="username" required />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="adminPassword" type="password" placeholder="Password" autocomplete="current-password" required />
+        </label>
+
+        <div class="form-actions admin-login-actions">
+          <button class="solid-btn" type="submit">Login & open portal</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

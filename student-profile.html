@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses student profile and virtual ID card." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Student Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="student-profile-page" data-page="student-profile">
+  <header class="site-header student-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Student portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Student profile navigation">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="student-result.html">Results</a>
+        <a href="student-profile.html">Profile</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="student-dashboard.html">Dashboard</a>
+        <button class="ghost-btn logout-btn" data-student-logout type="button">Logout</button>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="student-profile-shell">
+    <section class="profile-head">
+      <div>
+        <span class="mini-label">Profile</span>
+        <h1>Your digital ID card</h1>
+      </div>
+      <div class="topbar-actions">
+        <button class="solid-btn" id="downloadProfilePdf" type="button">Download ID card</button>
+        <button class="ghost-btn" data-student-logout type="button">Logout</button>
+      </div>
+    </section>
+
+    <section class="profile-layout profile-id-only-layout">
+      <aside class="panel virtual-id-panel">
+        <span class="mini-label">Virtual ID card</span>
+        <img id="profileIdCardPreview" class="id-card-preview" alt="Student ID card preview" loading="eager" />
+        <p class="muted-copy">Your digital ID card is generated from the details you provide at signup.</p>
+      </aside>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

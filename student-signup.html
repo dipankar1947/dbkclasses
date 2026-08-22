@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses student portal signup." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Student Sign Up</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="student-auth-page student-signup-page" data-page="student-signup">
+  <main class="student-auth-shell">
+    <div class="dbk-watermark" aria-hidden="true">DBK</div>
+
+    <div class="student-auth-grid student-auth-single">
+      <section class="student-auth-card student-setup-card" aria-labelledby="student-setup-title">
+        <div class="student-auth-header single-form-header">
+          <span class="mini-label">New student</span>
+          <h1 id="student-setup-title">Create your student profile</h1>
+          <p>Enter the special ID provided to you by DBKClasses and keep it safe for future logins.</p>
+        </div>
+
+        <form id="studentSignupForm" class="student-auth-form single-form" novalidate>
+          <label class="field">
+            <span>Student full name</span>
+            <input id="studentName" type="text" placeholder="Enter full name" autocomplete="name" required />
+          </label>
+
+          <label class="field">
+            <span>Special ID</span>
+            <input id="studentId" type="text" placeholder="Enter your special ID" autocomplete="off" required />
+          </label>
+
+          <label class="field">
+            <span>Mobile number</span>
+            <input id="contactNo" type="tel" placeholder="Enter mobile number" autocomplete="tel" required />
+          </label>
+
+          <div class="form-field-grid">
+            <label class="field">
+              <span>Blood group</span>
+              <select id="bloodGroup" required>
+                <option value="">Select blood group</option>
+                <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+                <option>AB+</option><option>AB-</option><option>O+</option><option>O-</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Batch</span>
+              <input id="studentClass" type="text" placeholder="e.g. HS 2026" required />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Guardian name</span>
+            <input id="guardianName" type="text" placeholder="Enter guardian name" required />
+          </label>
+
+          <label class="field">
+            <span>Location / address</span>
+            <textarea id="address" rows="3" placeholder="Enter complete address" required></textarea>
+          </label>
+
+          <label class="field photo-field">
+            <span>Student photo</span>
+            <input id="photoInput" type="file" accept="image/*" />
+          </label>
+
+          <div class="form-actions single-form-actions">
+            <button class="solid-btn" type="submit">Create student account</button>
+            <a class="ghost-btn" href="student-login.html">Already have an account? Log in</a>
+          </div>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

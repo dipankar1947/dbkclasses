@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses admin portal student list." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Admin Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page" data-page="admin-portal">
+  <header class="site-header admin-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Admin portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Admin navigation">
+        <a href="index.html">Home</a>
+        <a href="admin.html">Login</a>
+        <a href="admin-portal.html">Portal</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="index.html">Back to website</a>
+        <button class="ghost-btn" id="logoutAdminBtn" type="button">Logout</button>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-shell">
+    <section class="admin-hero">
+      <div class="admin-hero-copy">
+        <span class="eyebrow">Admin access</span>
+        <h1>Search students or enquiries, then open the details panel.</h1>
+        <p>
+          Use the two tabs to switch between students and enquiries. Click any item to open the full details and actions on the right.
+        </p>
+      </div>
+      <div class="admin-hero-metrics">
+        <article>
+          <strong id="adminMetricTotal">0</strong>
+          <span>Total records</span>
+        </article>
+        <article>
+          <strong id="adminMetricVisible">0</strong>
+          <span>Visible in view</span>
+        </article>
+        <article>
+          <strong>2</strong>
+          <span>Tabs to switch views</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="admin-toolbar panel">
+      <div class="panel-header admin-toolbar-head">
+        <div>
+          <span class="mini-label">Record registry</span>
+          <h3>Find what you need</h3>
+        </div>
+        <span class="status-pill">Ready</span>
+      </div>
+
+      <div class="admin-tabs" role="tablist" aria-label="Admin record views">
+        <button class="admin-tab-button is-active" type="button" data-admin-view="students">Students</button>
+        <button class="admin-tab-button" type="button" data-admin-view="enquiries">Enquiries</button>
+      </div>
+
+      <div class="admin-toolbar-row">
+        <label class="field admin-search-field">
+          <span>Search students</span>
+          <input id="adminSearch" type="search" placeholder="Name, ID, class, guardian, or series" />
+        </label>
+        <button class="ghost-btn admin-refresh-btn" id="refreshAdminStudents" type="button">Refresh list</button>
+      </div>
+    </section>
+
+    <section class="admin-portal-grid">
+      <article class="panel admin-list-panel admin-directory-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label" id="adminListLabel">Student list</span>
+            <h3 id="adminListTitle">Click any student to view details</h3>
+          </div>
+          <span class="status-pill" id="adminListStatus">Directory</span>
+        </div>
+        <div id="adminStudentList" class="admin-student-list"></div>
+      </article>
+
+      <article class="panel admin-detail-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Details</span>
+            <h3 id="adminDetailTitle">Selected record</h3>
+          </div>
+          <span class="status-pill" id="adminDetailStatus">Ready</span>
+        </div>
+        <div id="adminSelectedDetail" class="admin-selected-detail">
+          <div class="admin-empty-list">
+            <strong>Select a record</strong>
+            <p>Choose a student or enquiry from the list to see the full information here.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

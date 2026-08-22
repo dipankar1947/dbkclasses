@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses student portal login." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Student Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="student-auth-page student-login-page" data-page="student-login">
+  <main class="student-auth-shell">
+    <div class="dbk-watermark" aria-hidden="true">DBK</div>
+
+    <div class="student-auth-grid student-auth-single">
+      <section class="student-auth-card student-login-card" aria-labelledby="student-login-title">
+        <div class="student-auth-header">
+          <span class="mini-label">Returning student</span>
+          <h1 id="student-login-title">Log in to your student portal</h1>
+          <p>Use your registered name and the private ID created when you signed up.</p>
+        </div>
+
+        <form id="studentLoginForm" class="student-login-form" novalidate>
+          <label class="field">
+            <span>Student name</span>
+            <input id="loginStudentName" type="text" placeholder="Enter your original name" autocomplete="name" required />
+          </label>
+
+          <label class="field">
+            <span>Special ID</span>
+            <input id="loginStudentPassword" type="text" placeholder="name_dbklove" autocomplete="off" required />
+          </label>
+
+          <div class="form-actions single-form-actions">
+            <button class="solid-btn" type="submit">Log in</button>
+            <a class="ghost-btn" href="student-signup.html">New here? Sign up</a>
+          </div>
+        </form>
+
+        <p class="auth-help-line">Don’t have an account yet? <a class="text-link-inline" href="student-signup.html">Sign up here</a>.</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

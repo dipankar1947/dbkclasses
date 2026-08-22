@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses student results and score details." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Student Results</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="student-results-page" data-page="student-results">
+  <header class="site-header student-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Student portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Student results navigation">
+        <a href="student-dashboard.html">Dashboard</a>
+        <a href="student-result.html">Results</a>
+        <a href="student-profile.html">Profile</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="student-dashboard.html">Dashboard</a>
+        <button class="ghost-btn logout-btn" data-student-logout type="button">Logout</button>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="student-results-shell">
+    <section class="page-banner">
+      <div>
+        <span class="mini-label">Results</span>
+        <h1>Your test series results</h1>
+      </div>
+      <div class="topbar-actions">
+        <a class="ghost-btn" href="student-dashboard.html">Dashboard</a>
+        <button class="ghost-btn" data-student-logout type="button">Logout</button>
+      </div>
+    </section>
+
+    <section class="results-layout">
+      <article class="panel result-summary-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Overview</span>
+            <h3>Student summary</h3>
+          </div>
+          <span class="status-pill" id="resultStatus">Live report</span>
+        </div>
+
+        <div class="stats-grid dashboard-stats">
+          <div class="stat-card">
+            <span>Average</span>
+            <strong id="resultAverage">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Best</span>
+            <strong id="resultBest">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Latest</span>
+            <strong id="resultLatest">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Test series</span>
+            <strong id="resultTotal">0</strong>
+          </div>
+          <div class="stat-card">
+            <span>Rank</span>
+            <strong id="resultRank">-</strong>
+          </div>
+        </div>
+      </article>
+
+      <article class="panel result-notice-panel">
+        <span class="mini-label">Special notice</span>
+        <h3>Message from DBKClasses</h3>
+        <p id="resultNotice">Your owner notice will appear here when it is published.</p>
+      </article>
+
+      <article class="panel chart-panel result-chart-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Progress graph</span>
+            <h3>Performance across test series</h3>
+          </div>
+        </div>
+        <div class="chart-wrap" id="resultChart"></div>
+      </article>
+
+      <article class="panel results-card-panel">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Details</span>
+            <h3>Test series details</h3>
+          </div>
+        </div>
+        <div id="resultList" class="marks-list"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

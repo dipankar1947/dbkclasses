@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DBKClasses admin student dashboard." />
+  <meta name="robots" content="noindex, nofollow, noarchive" />
+  <title>DBKClasses | Student Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Merriweather:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-page" data-page="admin-student">
+  <header class="site-header admin-header">
+    <div class="header-inner">
+      <a class="brand-link" href="index.html" aria-label="DBKClasses home">
+        <img class="brand-logo" src="assets/logo/dbk-logo.jpg" alt="DBKClasses logo" />
+        <span class="brand-copy">
+          <strong>DBKClasses</strong>
+          <span>Admin portal</span>
+        </span>
+      </a>
+
+      <nav class="primary-nav" id="primary-nav" aria-label="Admin student navigation">
+        <a href="admin-portal.html">Students</a>
+        <a href="admin-student.html">Dashboard</a>
+        <a id="adminStudentEditLink" href="admin-student-edit.html">Edit</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="ghost-btn" href="admin-portal.html">Back</a>
+        <button class="ghost-btn" id="logoutAdminBtn" type="button">Logout</button>
+        <button class="nav-toggle" type="button" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-student-shell">
+    <section class="admin-student-hero">
+      <div>
+        <span class="eyebrow">Student dashboard</span>
+        <h1 id="adminStudentName">Student name</h1>
+        <p id="adminStudentMeta">Student ID</p>
+      </div>
+      <div class="admin-student-actions">
+        <button class="solid-btn" id="downloadAdminIdCard" type="button">Download ID card</button>
+        <a class="ghost-btn" id="adminStudentEditButton" href="admin-student-edit.html">Edit marks</a>
+        <button class="ghost-btn admin-danger-btn" id="adminDeleteStudent" type="button">Delete profile</button>
+      </div>
+    </section>
+
+    <section class="admin-student-grid">
+      <article class="panel admin-dashboard-card">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Profile</span>
+            <h3>Student details</h3>
+          </div>
+          <span class="status-pill" id="adminStudentStatus">Active</span>
+        </div>
+
+        <div class="admin-profile-strip">
+          <div class="admin-photo-box">
+            <img id="adminStudentPhoto" alt="Student photo" hidden />
+            <span id="adminStudentPhotoFallback">DB</span>
+          </div>
+          <div class="admin-student-meta-grid">
+            <div><strong>Guardian</strong><span id="adminStudentGuardian">-</span></div>
+            <div><strong>Contact</strong><span id="adminStudentContact">-</span></div>
+            <div><strong>Class</strong><span id="adminStudentClass">-</span></div>
+            <div><strong>Test series</strong><span id="adminStudentSeries">-</span></div>
+            <div class="admin-wide-field"><strong>Address</strong><span id="adminStudentAddress">-</span></div>
+          </div>
+        </div>
+
+        <div class="admin-id-card-preview">
+          <img id="adminDashboardIdCardPreview" class="id-card-preview" alt="Student ID card preview" />
+          <p class="muted-copy">This is the same card that downloads from the button above.</p>
+        </div>
+      </article>
+
+      <article class="panel admin-dashboard-card">
+        <div class="panel-header">
+          <div>
+            <span class="mini-label">Progress</span>
+            <h3>Marks dashboard</h3>
+          </div>
+          <span class="status-pill">Live</span>
+        </div>
+
+        <div class="stats-grid admin-stats-grid">
+          <div class="stat-card">
+            <span>Average</span>
+            <strong id="adminProgressAverage">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Best</span>
+            <strong id="adminProgressBest">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Latest</span>
+            <strong id="adminProgressLatest">0%</strong>
+          </div>
+          <div class="stat-card">
+            <span>Tests</span>
+            <strong id="adminProgressTotal">0</strong>
+          </div>
+        </div>
+
+        <div id="adminDashboardChart" class="chart-wrap"></div>
+        <div id="adminDashboardRecent" class="recent-results"></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
