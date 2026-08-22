@@ -107,18 +107,30 @@ function closeSiteModal(modal) {
 function initHomepageModals() {
   const welcomeModal = document.getElementById('welcomeModal');
   const enquiryModal = document.getElementById('enquiryModal');
+  const teacherMaintenanceModal = document.getElementById('teacherMaintenanceModal');
   const openEnquiryButtons = document.querySelectorAll('[data-open-enquiry-modal]');
+  const openMaintenanceButtons = document.querySelectorAll('[data-open-maintenance-modal]');
   const closeButtons = document.querySelectorAll('[data-modal-close]');
 
   const closeAll = () => {
     closeSiteModal(welcomeModal);
     closeSiteModal(enquiryModal);
+    closeSiteModal(teacherMaintenanceModal);
   };
 
   openEnquiryButtons.forEach((button) => {
     button.addEventListener('click', () => {
       closeSiteModal(welcomeModal);
+      closeSiteModal(teacherMaintenanceModal);
       openSiteModal(enquiryModal);
+    });
+  });
+
+  openMaintenanceButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      closeSiteModal(welcomeModal);
+      closeSiteModal(enquiryModal);
+      openSiteModal(teacherMaintenanceModal);
     });
   });
 
@@ -128,7 +140,7 @@ function initHomepageModals() {
     });
   });
 
-  [welcomeModal, enquiryModal].forEach((modal) => {
+  [welcomeModal, enquiryModal, teacherMaintenanceModal].forEach((modal) => {
     modal?.addEventListener('click', (event) => {
       if (event.target === modal || event.target.classList.contains('site-modal-backdrop')) {
         closeSiteModal(modal);
@@ -1029,6 +1041,7 @@ function initAdminPortalPage() {
   const detailTitle = document.getElementById('adminDetailTitle');
   const detailStatus = document.getElementById('adminDetailStatus');
   const detailPanel = document.getElementById('adminSelectedDetail');
+  const closeDetailButton = document.getElementById('closeAdminDetail');
   const tabButtons = Array.from(document.querySelectorAll('[data-admin-view]'));
 
   let activeView = 'students';
@@ -1134,8 +1147,16 @@ function initAdminPortalPage() {
     </div>
   `;
 
-  const renderDetail = (item) => {
+  const renderDetail = (item, openMobile = false) => {
     if (!detailPanel) return;
+
+    detailPanel.classList.toggle('is-mobile-open', openMobile);
+    const isMobileDetail = window.matchMedia?.('(max-width: 1080px)').matches;
+    if (openMobile && isMobileDetail) {
+      document.body.classList.add('modal-open');
+    } else if (!document.querySelector('.site-modal.is-open:not([hidden])')) {
+      document.body.classList.remove('modal-open');
+    }
 
     if (!item) {
       detailPanel.innerHTML = `
@@ -1161,7 +1182,7 @@ function initAdminPortalPage() {
     if (detailStatus) detailStatus.textContent = 'Student';
   };
 
-  const renderList = () => {
+  const renderList = (openMobile = false) => {
     const visible = visibleItems();
 
     if (totalCount) totalCount.textContent = String(activeView === 'enquiries' ? enquiries.length : students.length);
@@ -1186,7 +1207,7 @@ function initAdminPortalPage() {
             <p>Try another name, class, guardian, or ID.</p>
           </div>
         `;
-      renderDetail(null);
+      renderDetail(null, openMobile);
       return;
     }
 
@@ -1225,7 +1246,7 @@ function initAdminPortalPage() {
     }).join('');
 
     const current = visible.find((item) => (activeView === 'enquiries' ? item.enquiryId : item.studentId) === selectedId) || visible[0] || null;
-    renderDetail(current);
+    renderDetail(current, openMobile);
   };
 
   const syncData = () => {
@@ -1251,7 +1272,7 @@ function initAdminPortalPage() {
     const enquiryButton = event.target.closest('[data-enquiry-id]');
     if (enquiryButton) {
       selectedId = enquiryButton.dataset.enquiryId || '';
-      renderList();
+      renderList(true);
       return;
     }
 
@@ -1260,11 +1281,18 @@ function initAdminPortalPage() {
       const studentId = studentButton.dataset.studentId || '';
       if (activeView === 'students') {
         selectedId = studentId;
-        renderList();
+        renderList(true);
       } else {
         selectedId = studentId;
-        renderList();
+        renderList(true);
       }
+    }
+  });
+
+  closeDetailButton?.addEventListener('click', () => {
+    detailPanel?.classList.remove('is-mobile-open');
+    if (!document.querySelector('.site-modal.is-open:not([hidden])')) {
+      document.body.classList.remove('modal-open');
     }
   });
 

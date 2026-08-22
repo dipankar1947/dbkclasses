@@ -188,7 +188,7 @@
             <span class="portal-tag">Teacher Portal</span>
             <h3>Teach with structure</h3>
             <p>Plan lessons, share notes, review batches, and stay aligned with your class schedule and content.</p>
-            <a class="portal-btn" href="#team">Open Teacher Flow</a>
+            <button class="portal-btn" type="button" data-open-maintenance-modal>Open Teacher Flow</button>
           </article>
         </div>
       </div>
@@ -377,6 +377,21 @@
 
         <p id="homeEnquiryStatus" class="muted-copy">We will save this enquiry for admin review.</p>
       </form>
+    </section>
+  </div>
+
+  <div class="site-modal" id="teacherMaintenanceModal" data-site-modal="maintenance" aria-hidden="true" hidden>
+    <div class="site-modal-backdrop" data-modal-close></div>
+    <section class="site-modal-dialog maintenance-modal" role="dialog" aria-modal="true" aria-labelledby="teacherMaintenanceTitle">
+      <button class="site-modal-close" type="button" aria-label="Close teacher portal notice" data-modal-close>&times;</button>
+      <div class="maintenance-modal-icon" aria-hidden="true">&#9881;</div>
+      <span class="mini-label">Teacher Portal</span>
+      <h3 id="teacherMaintenanceTitle">Under maintenance</h3>
+      <p>The teacher portal is being prepared and will be available in a future update.</p>
+      <div class="form-actions">
+        <button class="solid-btn" type="button" data-modal-close>Okay, got it</button>
+        <button class="ghost-btn" type="button" data-open-enquiry-modal>Contact DBK Classes</button>
+      </div>
     </section>
   </div>
 
