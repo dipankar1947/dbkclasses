@@ -13,4 +13,4 @@ Disallow: /student-profile.html
 Allow: /index.html
 Allow: /privacy-policy.html
 Allow: /terms.html
-Sitemap: https://www.dbkclasses.in/sitemap.xml
+Sitemap: https://dbkclasses.in/sitemap.xml
