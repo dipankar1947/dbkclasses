@@ -1831,3 +1831,99 @@ body.student-auth-page { background: #ffffff; color: #111111; }
   .admin-report-settings-grid { grid-template-columns: 1fr; }
 }
 
+/* Final mobile alignment pass. */
+@media (max-width: 760px) {
+  html,
+  body { max-width: 100%; overflow-x: hidden; }
+
+  .section-shell,
+  .student-home-shell,
+  .student-auth-shell,
+  .student-dashboard-shell,
+  .student-profile-shell,
+  .student-results-shell,
+  .admin-shell,
+  .admin-student-shell {
+    width: min(100% - 24px, 680px);
+    margin-top: 18px;
+  }
+
+  .section { padding: 52px 0; }
+  .header-inner { width: calc(100% - 24px); min-height: 72px; gap: 8px; }
+  .brand-logo { width: 42px; height: 42px; border-radius: 12px; }
+  .brand-copy strong { font-size: 0.92rem; }
+  .brand-copy span { font-size: 0.72rem; }
+  .header-actions { top: 14px; right: 0; }
+  .nav-toggle { width: 42px; height: 40px; }
+
+  .primary-nav { left: 0; right: 0; top: calc(100% + 6px); }
+  .primary-nav a { min-height: 44px; display: flex; align-items: center; }
+
+  .ticker-band { grid-template-columns: 1fr; gap: 6px; padding: 10px 0; }
+  .ticker-label { margin-left: 12px; }
+  .ticker-card { min-width: 220px; padding: 10px 12px; }
+
+  .hero-shell,
+  .student-home-hero,
+  .student-hero-shell,
+  .admin-hero,
+  .admin-student-hero { padding: 20px; border-radius: 24px; }
+  .hero-copy h1,
+  .student-home-copy h1,
+  .student-hero-shell h1,
+  .admin-hero-copy h1 { font-size: clamp(2rem, 11vw, 3.4rem); line-height: 1; }
+  .hero-copy p { font-size: 0.96rem; }
+  .hero-banner-frame { padding: 7px; border-radius: 20px; }
+  .hero-banner-image { border-radius: 14px; }
+
+  .portal-card,
+  .about-grid article,
+  .step-card,
+  .testimonial-card,
+  .faq-item,
+  .panel { min-width: 0; padding: 18px; border-radius: 22px; }
+  .portal-card { min-height: 0; }
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .stat-card { padding: 14px; }
+  .stat-card strong { font-size: 1.45rem; }
+  .stat-card span { font-size: 0.78rem; }
+
+  .faculty-slider { margin-right: -12px; padding-right: 12px; }
+  .faculty-card { width: 228px; flex-basis: 228px; }
+  .faculty-featured { width: 238px; flex-basis: 238px; height: 300px; }
+
+  .form-actions > *,
+  .single-form-actions > *,
+  .topbar-actions > *,
+  .admin-student-actions > *,
+  .hero-actions > *,
+  .hero-banner-actions > *,
+  .footer-contact-actions > * { width: 100%; }
+  .form-actions,
+  .single-form-actions,
+  .topbar-actions,
+  .admin-student-actions,
+  .hero-actions,
+  .hero-banner-actions,
+  .footer-contact-actions { width: 100%; }
+
+  .student-auth-card { padding: 20px 16px; border-radius: 24px; }
+  .student-auth-header h1 { font-size: clamp(1.9rem, 9vw, 2.8rem); }
+  .form-field-grid { grid-template-columns: 1fr; }
+  .profile-inline { align-items: flex-start; }
+  .dashboard-profile-grid { grid-template-columns: 1fr; }
+  .profile-id-only-layout { display: block; }
+  .virtual-id-panel { width: 100%; }
+  .id-card-preview { height: auto; max-height: 78vh; object-fit: contain; }
+
+  .admin-student-row { grid-template-columns: auto minmax(0, 1fr); }
+  .admin-student-row > :last-child { grid-column: 1 / -1; width: 100%; }
+  .admin-detail-grid { grid-template-columns: 1fr; }
+  .admin-progress-summary { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+  .site-footer { padding: 26px 0 12px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
+  .footer-links a { min-height: 30px; display: inline-flex; align-items: center; }
+  .footer-contact-text { padding: 0; }
+}
+
