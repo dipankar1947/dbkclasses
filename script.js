@@ -16,8 +16,60 @@ const STUDENT_HOME_PAGE = 'student.html';
 const STUDENT_LOGIN_PAGE = 'student-login.html';
 const STUDENT_SIGNUP_PAGE = 'student-signup.html';
 const SIGNUP_PREVIEW_PHOTO_KEY = 'dbkclasses.student.previewPhoto';
+const THEME_STORAGE_KEY = 'dbkclasses.theme';
 const ID_CARD_WIDTH = 1440;
 const ID_CARD_HEIGHT = 2133;
+
+function getPreferredTheme() {
+  const savedTheme = localStorage.getItem(THEME_STORAGE_KEY);
+  if (savedTheme === 'dark' || savedTheme === 'light') return savedTheme;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function applyTheme(theme, persist = false) {
+  const nextTheme = theme === 'dark' ? 'dark' : 'light';
+  document.documentElement.dataset.theme = nextTheme;
+  if (persist) localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    const isDark = nextTheme === 'dark';
+    button.setAttribute('aria-pressed', String(isDark));
+    button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    const icon = button.querySelector('.theme-toggle-icon');
+    const label = button.querySelector('.theme-toggle-label');
+    if (icon) icon.textContent = isDark ? '☀' : '☾';
+    if (label) label.textContent = isDark ? 'Light' : 'Dark';
+  });
+}
+
+applyTheme(getPreferredTheme());
+
+function initThemeToggle() {
+  const themeToggleMarkup = `
+    <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to dark mode">
+      <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+      <span class="theme-toggle-label">Dark</span>
+    </button>
+  `;
+  const headerActions = document.querySelectorAll('.header-actions');
+
+  if (!document.querySelector('[data-theme-toggle]')) {
+    if (headerActions.length) {
+      headerActions.forEach((actions) => actions.insertAdjacentHTML('afterbegin', themeToggleMarkup));
+    } else {
+      document.body.insertAdjacentHTML('afterbegin', themeToggleMarkup.replace('theme-toggle"', 'theme-toggle theme-toggle-floating"'));
+    }
+  }
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      applyTheme(nextTheme, true);
+    });
+  });
+
+  applyTheme(document.documentElement.dataset.theme || getPreferredTheme());
+}
 
 const navToggle = document.querySelector('.nav-toggle');
 const primaryNav = document.querySelector('.primary-nav');
@@ -692,11 +744,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const adminLogoutButton = document.getElementById('logoutAdminBtn');
-  adminLogoutButton?.addEventListener('click', () => {
-    clearAdminSession();
-    window.location.href = 'admin.html';
+  document.querySelectorAll('#logoutAdminBtn, [data-admin-logout]').forEach((adminLogoutButton) => {
+    adminLogoutButton.addEventListener('click', () => {
+      clearAdminSession();
+      window.location.href = 'admin.html';
+    });
   });
+
+  initThemeToggle();
 });
 
 function initStudentLoginPage() {
